@@ -11,6 +11,11 @@ class AuthenticationTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_authenticate_middleware()
+    {
+        $response = $this->get('dashboard')->assertRedirect('/login');
+    }
+
     public function test_login_screen_can_be_rendered()
     {
         $response = $this->get('/login');
